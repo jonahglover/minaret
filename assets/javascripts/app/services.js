@@ -1,16 +1,16 @@
-DashboardApp.service('accountSettingsServices', ['$http', function($http) {
-    this.details = function(){
+app.service('PALACE', ['$http', function($http) {
+	base_url = ".palace.io/";
+
+    this.get = function(palace_data){
+
+    	// prepare url
+    	base_url = ".palace.io/";
+    	data_url = "http://" + palace_data["subdomain"] + base_url + palace_data["api"]
+
    		return $http({
-   			url:'account/details',
-   			method: "POST",
-   			headers: {'Content-Type': 'application/json', 'Accept': 'application/json'}
-   		});
-    },
-    this.update = function(userData){
-   		return $http({
-   			url:'account/update',
-   			method: "POST",
-   			data: userData,
+   			method: "GET",
+   			url: data_url,
+   			params: palace_data["params"],
    			headers: {'Content-Type': 'application/json', 'Accept': 'application/json'}
    		});
     }
