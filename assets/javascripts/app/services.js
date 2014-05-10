@@ -1,14 +1,14 @@
 app.service('PALACE', ['$http', function($http) {
   base_url = ".palace.io/";
-    this.get = function(palace_data){
+    this.receive = function(palace_data){
       // prepare url
       base_url = ".palace.io/";
-      data_url = "http://" + base_url + palace_data["api"]
+      data_url = "http://" + palace_data["subdomain"] + base_url + palace_data["api"];
 
       return $http({
-        method: "GET",
+        method: "POST",
         url: data_url,
-        params: palace_data["params"],
+        data: palace_data,
         headers: {'Content-Type': 'application/json', 'Accept': 'application/json'}
       });
     },
