@@ -5,21 +5,22 @@ app.controller('mainController', ['$scope', 'PALACE', function($scope, PALACE) {
         loadComments();
     }
 
-    loadComments = function(){
+    $scope.addComment = function(){
+        
+    }
 
+    loadComments = function(){
         palace_data = {
                     "type"      :"receive",
-                    "subdomain" :"demo",
+                    "subdomain" :"demos",
                     "api"       :"mysore",
                     "where"     :{}
         };
-
         PALACE
         .receive(palace_data)
         .success(function(data){
              $scope.comments = data;
         })
-
     }
 
 }]);
