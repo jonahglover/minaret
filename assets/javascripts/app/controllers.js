@@ -1,20 +1,26 @@
 app.controller('mainController', ['$scope', 'PALACE', function($scope, PALACE) {
 
-    $scope.page_content = "hello, world";
+    $scope.init = function(){
+        $scope.comments = [];
+        loadComments();
+    }
 
-/*
-    palace_data={};
-    palace_data["subdomain"] = "demo";
-    palace_data["api"]       = "test";
-    params = {};
-    params["name"] = "jonah";
-    palace_data["params"] = params;
+    loadComments = function(){
 
-    PALACE.get(palace_data)
-    .success(function(data){
-    	console.log(data);
-    });
-*/
+        palace_data = {
+                    "type"      :"receive",
+                    "subdomain" :"demo",
+                    "api"       :"mysore",
+                    "where"     :{}
+        };
+
+        PALACE
+        .receive(palace_data)
+        .success(function(data){
+             $scope.comments = data;
+        })
+
+    }
 
 }]);
 
