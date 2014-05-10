@@ -1,5 +1,5 @@
 {
-	"type"		:"send"
+	"type"		:"send",
 	"subdomain"	:"your-project-subdomain",
 	"api"		:"you-api-name",
 	"key"		:"your-api-key",
